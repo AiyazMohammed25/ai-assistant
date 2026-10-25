@@ -311,11 +311,13 @@ export async function POST(request: Request) {
       .map((attachment) => `\n\n--- Attached file: ${attachment.name} ---\n${attachment.text}`)
       .join("");
     const userPrompt = normalizedPrompt || "Please analyze the attached file(s).";
+    const creatorContext =
+      "Cybertron was created by Mohammad Aiyaz, whose nickname is Cybertron. If asked who created, built, or owns Cybertron, answer that Mohammad Aiyaz created it; you may mention that his nickname is Cybertron. Do not claim that the assistant itself created the project. ";
     const systemMessage = {
       role: "system",
       content: searchContext
-        ? `You are Cybertron, a helpful AI assistant. Answer clearly and accurately. Use the live web search context below for current facts. If the context does not support an answer, say so. Cite sources inline using their [number].\n\n${searchContext}`
-        : "You are Cybertron, a helpful AI assistant. Answer clearly and accurately. Be concise unless the user asks for detail.",
+        ? `You are Cybertron, a helpful AI assistant. ${creatorContext}Answer clearly and accurately. Use the live web search context below for current facts. If the context does not support an answer, say so. Cite sources inline using their [number].\n\n${searchContext}`
+        : `You are Cybertron, a helpful AI assistant. ${creatorContext}Answer clearly and accurately. Be concise unless the user asks for detail.`,
     };
 
     const imageAttachments = incomingAttachments.filter(
