@@ -9,9 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "dotenv": "^18.0.9",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.61.0",
+    "mongoose": "^9.11.4",
     "next": "16.4.3",
+    "next-auth": "^4.24.15",
+    "pdfjs-dist": "^6.4.299",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
